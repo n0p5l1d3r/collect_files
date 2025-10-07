@@ -33,16 +33,16 @@ chmod +x collect_files.sh
 ```
 
 **Required arguments**
--s, --source : parent directory to scan (recursive)
--d, --dest : destination directory to copy files into
+`-s, --source` : parent directory to scan (recursive)
+`-d, --dest` : destination directory to copy files into
 
 **Options**
---mode MODE : collision strategy: suffix (default) or prefix
-  - suffix: file.txt, file_1.txt, file_2.txt...
-  - prefix: subdir_file.txt (preserves origin, minimizes collisions)
---ext LIST : comma-separated list of extensions to include (no leading dots). If omitted, all files are copied.
---dry-run : print actions but do not actually copy files
--h, --help : show help
+`--mode MODE` : collision strategy: suffix (default) or prefix
+  - `suffix`: file.txt, file_1.txt, file_2.txt...
+  - `prefix`: subdir_file.txt (preserves origin, minimizes collisions)
+`--ext LIST` : comma-separated list of extensions to include (no leading dots). If omitted, all files are copied.
+`--dry-run` : print actions but do not actually copy files
+`-h`, `--help` : show help
 
 
 ## Examples
@@ -58,13 +58,5 @@ chmod +x collect_files.sh
 ```
 ./collect_files.sh -s . -d /tmp/test_flat --dry-run
 ```
-
-Behavior & notes
-- The script copies regular files only (no device nodes or FIFOs).
-- cp -p is used to preserve modification time and permissions where possible.
-- For prefix mode, source path separators (/) are converted to underscores (_) to form safe filenames.
-- For safety, the script refuses to run if --source is not a directory, or if --dest is a file.
-- If you require preserving SELinux context or extended attributes, use cp -a or a different tool and adapt the script.
-- If a file is unreadable due to permissions, the file is skipped; run with appropriate privileges if necessary.
 
 
