@@ -24,7 +24,8 @@
 Clone or copy the script into your repo and make executable:
 
 ```bash
-curl -O https://raw.githubusercontent.com/<you>/collect-files/main/collect_files.sh
+git clone https://github.com/n0p5l1d3r/collect_files.git
+cd collect_files/
 chmod +x collect_files.sh
 ```
 
